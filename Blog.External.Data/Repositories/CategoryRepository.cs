@@ -9,7 +9,6 @@ namespace Blog.External.Data.Repositories
 {
     public sealed class CategoryRepository : ICategoryRepository
     {
-
         private readonly ApplicationDbContext _context;
         public CategoryRepository(ApplicationDbContext context) => _context = context;
 
@@ -56,7 +55,7 @@ namespace Blog.External.Data.Repositories
         {
             try
             {
-                var getId = await Task.Run(() => 
+                var getId = await Task.Run(() =>
                     CategoryIdRepositoryHelpers
                         .CompiledGetByIdAsync(_context, categoryId))
                             .ConfigureAwait(false);
@@ -128,7 +127,7 @@ namespace Blog.External.Data.Repositories
                 throw new Exception(ex.Message);
             }
 
-        }      
+        }
 
     }
 }

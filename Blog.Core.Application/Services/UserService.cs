@@ -19,8 +19,8 @@ namespace Blog.Core.Application.Services
 
             var password = model.Password;
 
-            model.Password = PasswordHasher.Hash(password); 
-         
+            model.Password = PasswordHasher.Hash(password);
+
             var addEntity = (User)model;
 
             await _repository.AddAsync(addEntity);
@@ -46,7 +46,7 @@ namespace Blog.Core.Application.Services
                 return (UserOutputDto)existing;
 
             return null;
-        }       
+        }
 
         public async Task<UserOutputDto> GetUserId(Guid userId)
         {
@@ -56,7 +56,7 @@ namespace Blog.Core.Application.Services
                 return null;
 
             return (UserOutputDto)existing;
-        }      
+        }
 
         public async Task<List<UserOutputDto>> GetUsers(CancellationToken cancellationToken)
         {
